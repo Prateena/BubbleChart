@@ -35,7 +35,17 @@ var svg = d3.select("#chart")
             		return radiusScale(d.sales);
             	})
     
-            	.attr("fill", "Purple")
+            	.attr("fill", function(d){
+            		var sales = d.sales
+            		if(sales<=50)
+            			return "white"
+            		if(sales>50 && sales<=100)
+            			return "Green"
+            		if(sales > 100 && sales <= 200)
+            			return "Red"
+            		if(sales > 200)
+            			return "Purple"
+            	})
 
 
 
